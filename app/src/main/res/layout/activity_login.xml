@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_bg"
+    android:orientation="vertical"
+    tools:context=".LoginActivity">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="11dp"
+        android:text="V 1.0.0 (R)"
+        android:textColor="#ffffff"
+        android:textSize="12sp" />
+
+    <ImageView
+        android:layout_width="282dp"
+        android:layout_height="119dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
+        android:src="@drawable/login_ic" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/weChatLogin"
+            android:layout_width="137dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/login_wechat"
+            android:clickable="true" />
+
+        <Button
+            android:id="@+id/phoneLogin"
+            android:layout_width="137dp"
+            android:layout_height="50dp"
+            android:background="@drawable/login_phone"
+            android:clickable="true" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#30000000"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center_horizontal"
+            android:paddingTop="8dp">
+
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/login_cb_true"
+                android:button="@null"
+                android:checked="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="我已详细阅读并同意"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_user_protocol"
+                style="@style/login_tv_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:text="《智萌竞技游戏用户协议》、" />
+
+            <TextView
+                android:id="@+id/tv_game_protocol"
+                style="@style/login_tv_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:text="《智萌竞技游戏服务许可协议》" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/login_tv"
+                android:text="本网络游戏适合年满16周岁以上的用户使用，为了你的健康，请合理控制游戏时间。" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
+                style="@style/login_tv"
+                android:text="抵制不良游戏，拒绝盗版游戏。注意自我保护，谨防受骗上当。适度游戏益脑，沉迷游戏伤身。合理安排时间，享受健康生活。" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/login_tv"
+                android:text="文网游备字[2018]M-CBG 0491号 粤网文[2017]6832-1672号 新广出审[2017]4175号 出版物号：ISBN 978-7-7979-7540-7" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
