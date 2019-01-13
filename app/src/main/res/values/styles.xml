@@ -13,6 +13,11 @@
         <item name="android:textColor">#FFFFFFFF</item>
     </style>
 
+    <style name="login_tv_view">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#FFFFFFFF</item>
+    </style>
+
     <style name="login_tv_check">
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">#FFFFEB00</item>
@@ -24,4 +29,15 @@
         <item name="android:layout_marginStart">6dp</item>
     </style>
 
+    <style name="main_center_button">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="main_bottom_button">
+        <item name="android:background">#00000000</item>
+        <item name="android:textColor">#FFFFFFFF</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:paddingTop">5dp</item>
+    </style>
 </resources>

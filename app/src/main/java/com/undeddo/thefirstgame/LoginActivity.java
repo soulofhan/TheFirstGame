@@ -1,5 +1,6 @@
 package com.undeddo.thefirstgame;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,17 +30,7 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         init();
-
-        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
-                    checkBox.setBackground(getDrawable(R.drawable.login_cb_true));
-                }else {
-                    checkBox.setBackground(getDrawable(R.drawable.login_cb_bg));
-                }
-            }
-        });
+        click_touch();
     }
 
     private void init() {
@@ -49,10 +40,25 @@ public class LoginActivity extends Activity {
         tv_user_protocol = findViewById(R.id.tv_user_protocol);
         tv_game_protocol = findViewById(R.id.tv_game_protocol);
 
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    private void click_touch() {
         login_phone.setOnTouchListener(onTouchListener);
         login_weChat.setOnTouchListener(onTouchListener);
         tv_user_protocol.setOnClickListener(onClickListener);
         tv_game_protocol.setOnClickListener(onClickListener);
+
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    checkBox.setBackground(getDrawable(R.drawable.login_cb_true));
+                } else {
+                    checkBox.setBackground(getDrawable(R.drawable.login_cb_bg));
+                }
+            }
+        });
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -60,10 +66,10 @@ public class LoginActivity extends Activity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.tv_user_protocol:
-                    Toast.makeText(LoginActivity.this,"用户协议",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "用户协议", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.tv_game_protocol:
-                    Toast.makeText(LoginActivity.this,"游戏协议",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "游戏协议", Toast.LENGTH_SHORT).show();
                     break;
                 default:
                     break;
@@ -78,32 +84,32 @@ public class LoginActivity extends Activity {
     View.OnTouchListener onTouchListener = new View.OnTouchListener() {
         @Override
         public boolean onTouch(View v, MotionEvent event) {
-            switch (event.getAction()){
+            switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
-                    if(v.getId()==R.id.phoneLogin) {
+                    if (v.getId() == R.id.phoneLogin) {
                         Tools.action_down(login_phone);
-                    }else{
+                    } else {
                         Tools.action_down(login_weChat);
                     }
                     break;
                 case MotionEvent.ACTION_UP:
-                    if(v.getId()==R.id.phoneLogin) {
+                    if (v.getId() == R.id.phoneLogin) {
                         Tools.action_up(login_phone);
                         login_phone.performClick();
-                        if(checkboxStatus()){
-                            Toast.makeText(LoginActivity.this,"手机登录",Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                        if (checkboxStatus()) {
+                            Toast.makeText(LoginActivity.this, "手机登录", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(intent);
-                        }else{
-                            Toast.makeText(LoginActivity.this,"请阅读并同意用户协议",Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(LoginActivity.this, "请阅读并同意用户协议", Toast.LENGTH_SHORT).show();
                         }
-                    }else{
+                    } else {
                         Tools.action_up(login_weChat);
                         login_phone.performClick();
-                        if(checkboxStatus()){
-                            Toast.makeText(LoginActivity.this,"微信登录",Toast.LENGTH_SHORT).show();
-                        }else{
-                            Toast.makeText(LoginActivity.this,"请阅读并同意用户协议",Toast.LENGTH_SHORT).show();
+                        if (checkboxStatus()) {
+                            Toast.makeText(LoginActivity.this, "微信登录", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(LoginActivity.this, "请阅读并同意用户协议", Toast.LENGTH_SHORT).show();
                         }
                     }
                     break;

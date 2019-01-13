@@ -7,15 +7,15 @@
     android:background="@drawable/login_bg"
     tools:context=".MainActivity">
 
-    <android.support.v7.widget.AppCompatImageView
-        android:id="@+id/iv_user_ic"
+    <Button
+        android:id="@+id/btn_user_ic"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="15dp"
+        android:background="@drawable/avatar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/avatar" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_user_name"
@@ -24,8 +24,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="20dp"
-        android:text="新哥丢丢丢"
-        app:layout_constraintStart_toEndOf="@+id/iv_user_ic"
+        android:text="@string/main_userName"
+        app:layout_constraintStart_toEndOf="@+id/btn_user_ic"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -33,10 +33,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="ID:320165"
+        android:text="@string/main_userID"
         android:textColor="#FFFFF822"
         android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@+id/iv_user_ic"
+        app:layout_constraintStart_toEndOf="@+id/btn_user_ic"
         app:layout_constraintTop_toBottomOf="@+id/tv_user_name" />
 
     <LinearLayout
@@ -49,43 +49,43 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <android.support.v7.widget.AppCompatImageView
+        <Button
             android:layout_width="15dp"
             android:layout_height="15dp"
-            app:srcCompat="@drawable/diamond" />
+            android:background="@drawable/diamond" />
 
         <TextView
             android:id="@+id/tv_diamond"
             style="@style/main_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="10000W" />
+            android:text="@string/main_currency" />
 
-        <android.support.v7.widget.AppCompatImageView
+        <Button
             android:layout_width="15dp"
             android:layout_height="15dp"
             android:layout_marginStart="30dp"
-            app:srcCompat="@drawable/gold" />
+            android:background="@drawable/gold" />
 
         <TextView
             android:id="@+id/tv_gold"
             style="@style/main_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="10000W" />
+            android:text="@string/main_currency" />
 
-        <android.support.v7.widget.AppCompatImageView
+        <Button
             android:layout_width="15dp"
             android:layout_height="15dp"
             android:layout_marginStart="30dp"
-            app:srcCompat="@drawable/point_coupon" />
+            android:background="@drawable/point_coupon" />
 
         <TextView
             android:id="@+id/tv_ticket"
             style="@style/main_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="10000W" />
+            android:text="@string/main_currency" />
 
     </LinearLayout>
 
@@ -100,9 +100,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -110,36 +112,38 @@
 
         <Button
             android:id="@+id/btn_guild"
-            android:layout_width="178dp"
-            android:layout_height="197dp"
+            style="@style/main_center_button"
+            android:layout_height="190dp"
+            android:layout_marginStart="5dp"
             android:background="@drawable/guild" />
 
         <Button
             android:id="@+id/btn_eventCenter"
-            android:layout_width="178dp"
-            android:layout_height="197dp"
+            style="@style/main_center_button"
+            android:layout_height="190dp"
             android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
             android:background="@drawable/event_center" />
 
         <Button
             android:id="@+id/btn_gameCenter"
-            android:layout_width="178dp"
-            android:layout_height="197dp"
-            android:layout_marginStart="12dp"
+            style="@style/main_center_button"
+            android:layout_height="190dp"
+            android:layout_marginEnd="5dp"
             android:background="@drawable/game_center" />
 
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tv_email_number"
         android:layout_width="18dp"
         android:layout_height="18dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginBottom="45dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginBottom="46dp"
         android:background="@drawable/red_dot"
-        android:text="99"
-        android:textColor="#FFFFFFFF"
         android:gravity="center"
+        android:text="@string/main_emailNumber"
+        android:textColor="#FFFFFFFF"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout4"
         app:layout_constraintStart_toStartOf="@+id/linearLayout4" />
 
@@ -148,71 +152,65 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
-        app:layout_constraintVertical_bias="0.3">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.95">
 
 
         <Button
             android:id="@+id/btn_email"
+            style="@style/main_bottom_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#00FFFFFF"
+            android:layout_marginStart="5dp"
             android:drawableTop="@drawable/mail"
             android:drawablePadding="5dp"
-            android:text="邮件"
-            android:textColor="#FFFFFFFF"
-            android:textSize="16sp" />
+            android:text="@string/main_email" />
 
         <Button
             android:id="@+id/btn_event"
+            style="@style/main_bottom_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
-            android:background="#00FFFFFF"
             android:drawableTop="@drawable/event"
             android:drawablePadding="5dp"
-            android:text="活动"
-            android:textColor="#FFFFFFFF"
-            android:textSize="16sp" />
+            android:text="@string/main_event" />
 
         <Button
             android:id="@+id/btn_backpack"
+            style="@style/main_bottom_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
-            android:background="#00FFFFFF"
             android:drawableTop="@drawable/knapsack"
             android:drawablePadding="5dp"
-            android:text="背包"
-            android:textColor="#FFFFFFFF"
-            android:textSize="16sp" />
+            android:text="@string/main_backpack" />
 
         <Button
             android:id="@+id/btn_setting"
+            style="@style/main_bottom_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
-            android:background="#00FFFFFF"
             android:drawableTop="@drawable/settings"
             android:drawablePadding="5dp"
-            android:text="设置"
-            android:textColor="#FFFFFFFF"
-            android:textSize="16sp" />
+            android:text="@string/main_settings" />
 
         <Button
             android:id="@+id/btn_share"
+            style="@style/main_bottom_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
-            android:background="#00FFFFFF"
+            android:layout_marginEnd="5dp"
             android:drawableTop="@drawable/share_ic"
             android:drawablePadding="5dp"
-            android:text="分享"
-            android:textColor="#FFFFFFFF"
-            android:textSize="16sp" />
+            android:text="@string/main_share" />
 
     </LinearLayout>
 

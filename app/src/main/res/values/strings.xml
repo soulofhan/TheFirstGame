@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">TheFirstGame</string>
+    <string name="description">null</string>
+    <string name="app_Version">V1.0.0 (R)</string>
+    <string name="check_text">我已详细阅读并同意</string>
+    <string name="check_user_protocol">《智萌竞技游戏用户协议》、</string>
+    <string name="game_protocol">《智萌竞技游戏服务许可协议》</string>
+    <string name="login_text">本网络游戏适合年满16周岁以上的用户使用，为了你的健康，请合理控制游戏时间。</string>
+    <string name="login_warning">抵制不良游戏，拒绝盗版游戏。注意自我保护，谨防受骗上当。适度游戏益脑，沉迷游戏伤身。合理安排时间，享受健康生活。</string>
+    <string name="login_copyright">文网游备字[2018]M&#8211;CBG 0491号 粤网文[2017]6832&#8211;1672号 新广出审[2017]4175号 出版物号：ISBN 978&#8211;7&#8211;7979&#8211;7540&#8211;7</string>
+    <string name="main_userName">新哥丢丢丢</string>
+    <string name="main_userID">ID:320165</string>
+    <string name="main_currency">10000W</string>
+    <string name="main_emailNumber">1</string>
+    <string name="main_email">邮件</string>
+    <string name="main_event">活动</string>
+    <string name="main_backpack">背包</string>
+    <string name="main_settings">设置</string>
+    <string name="main_share">分享</string>
 </resources>
