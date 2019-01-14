@@ -83,36 +83,22 @@ public class LoginActivity extends Activity {
 
     View.OnTouchListener onTouchListener = new View.OnTouchListener() {
         @Override
-        public boolean onTouch(View v, MotionEvent event) {
-            switch (event.getAction()) {
-                case MotionEvent.ACTION_DOWN:
-                    if (v.getId() == R.id.phoneLogin) {
-                        Tools.action_down(login_phone);
-                    } else {
-                        Tools.action_down(login_weChat);
-                    }
-                    break;
-                case MotionEvent.ACTION_UP:
-                    if (v.getId() == R.id.phoneLogin) {
-                        Tools.action_up(login_phone);
-                        login_phone.performClick();
-                        if (checkboxStatus()) {
-                            Toast.makeText(LoginActivity.this, "手机登录", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                            startActivity(intent);
-                        } else {
-                            Toast.makeText(LoginActivity.this, "请阅读并同意用户协议", Toast.LENGTH_SHORT).show();
-                        }
-                    } else {
-                        Tools.action_up(login_weChat);
-                        login_phone.performClick();
-                        if (checkboxStatus()) {
-                            Toast.makeText(LoginActivity.this, "微信登录", Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(LoginActivity.this, "请阅读并同意用户协议", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                    break;
+        public boolean onTouch(View view, MotionEvent event) {
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                Tools.action_down(view);
+            }
+            if (event.getAction() == MotionEvent.ACTION_UP) {
+                Tools.action_up(view);
+                view.performClick();
+                if (view.getId() == R.id.phoneLogin && checkboxStatus()) {
+                    Toast.makeText(LoginActivity.this, "手机登录", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(intent);
+                } else if (view.getId() == R.id.weChatLogin && checkboxStatus()) {
+                    Toast.makeText(LoginActivity.this, "微信登录", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(LoginActivity.this, "请阅读并同意用户协议", Toast.LENGTH_SHORT).show();
+                }
             }
             return false;
         }
