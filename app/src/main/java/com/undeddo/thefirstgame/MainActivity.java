@@ -3,16 +3,15 @@ package com.undeddo.thefirstgame;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.undeddo.thefirstgame.unit.Tools;
+import com.undeddo.thefirstgame.viewInterface.MainView;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements MainView {
     private static final String TAG = "MainActivity";
 
     private TextView tv_user_name;      //用户名
@@ -80,13 +79,13 @@ public class MainActivity extends Activity {
         public boolean onTouch(View view, MotionEvent event) {
             if (event.getAction() == MotionEvent.ACTION_DOWN) {
                 Tools.action_down(view);
-                if(view.getId()==R.id.btn_email){
+                if (view.getId() == R.id.btn_email) {
                     Tools.setX_down(tv_email_number);
                 }
             }
             if (event.getAction() == MotionEvent.ACTION_UP) {
                 Tools.action_up(view);
-                if(view.getId()==R.id.btn_email){
+                if (view.getId() == R.id.btn_email) {
                     Tools.setX_up(tv_email_number);
                 }
                 view.performClick();
@@ -95,4 +94,38 @@ public class MainActivity extends Activity {
         }
     };
 
+    @Override
+    public void setTv_user_name(String user_name) {
+        tv_user_name.setText(user_name);
+    }
+
+    @Override
+    public void setTv_user_id(String user_Id) {
+        tv_user_ID.setText(user_Id);
+    }
+
+    @Override
+    public void setTv_diamond(String diamond) {
+        tv_diamond.setText(diamond);
+    }
+
+    @Override
+    public void setTv_gold(String gold) {
+        tv_gold.setText(gold);
+    }
+
+    @Override
+    public void setTv_ticket(String ticket) {
+        tv_ticket.setText(ticket);
+    }
+
+    @Override
+    public void setTv_email_number(String number) {
+        tv_email_number.setText(number);
+    }
+
+    @Override
+    public void setBtn_user_ic(int user_ic) {
+        btn_user_ic.setBottom(user_ic);
+    }
 }

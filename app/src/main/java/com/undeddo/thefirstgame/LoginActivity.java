@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +16,7 @@ import com.undeddo.thefirstgame.unit.Tools;
 
 public class LoginActivity extends Activity {
     private String TAG = "LoginActivity";
+    long firstPressedTime = 0;
 
     private Button login_phone;
     private Button login_weChat;
@@ -39,7 +39,7 @@ public class LoginActivity extends Activity {
         checkBox = findViewById(R.id.checkBox);
         tv_user_protocol = findViewById(R.id.tv_user_protocol);
         tv_game_protocol = findViewById(R.id.tv_game_protocol);
-
+        ((TextView) findViewById(R.id.tv_Version)).setText(String.format("V %s", Tools.getVersion(this)));
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -103,4 +103,14 @@ public class LoginActivity extends Activity {
             return false;
         }
     };
+
+    @Override
+    public void onBackPressed() {
+        if (System.currentTimeMillis() - firstPressedTime < 2000) {
+            super.onBackPressed();
+        } else {
+            Toast.makeText(LoginActivity.this, getResources().getString(R.string.login_again), Toast.LENGTH_SHORT).show();
+            firstPressedTime = System.currentTimeMillis();
+        }
+    }
 }
