@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.undeddo.thefirstgame.unit.JsonDataProcess;
 import com.undeddo.thefirstgame.unit.Tools;
 import com.undeddo.thefirstgame.viewInterface.MainView;
 
@@ -32,12 +33,15 @@ public class MainActivity extends Activity implements MainView {
     private Button btn_setting;         //设置
     private Button btn_share;           //分享
 
+    JsonDataProcess jsonDataProcess;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
         btn_click();
+        jsonDataProcess = new JsonDataProcess(this);
     }
 
     private void init() {
@@ -101,7 +105,7 @@ public class MainActivity extends Activity implements MainView {
 
     @Override
     public void setTv_user_id(String user_Id) {
-        tv_user_ID.setText(user_Id);
+        tv_user_ID.setText(String.format("ID: %s", user_Id));
     }
 
     @Override
